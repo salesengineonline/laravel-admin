@@ -4,7 +4,9 @@
     <div class="{{$viewClass['field']}}"></div>
 </div>
 
+@if(!$form->removeEmbedHr())
 <hr style="margin-top: 0px;">
+@endif
 
 <div id="embed-{{$column}}" class="embed-{{$column}}">
 
@@ -20,4 +22,6 @@
     </div>
 </div>
 
-<hr style="margin-top: 0px;">
+@if(!$form->removeEmbedHr())
+    <hr style="margin-top: 0px;">
+@endif

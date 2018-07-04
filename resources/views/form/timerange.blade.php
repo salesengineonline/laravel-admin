@@ -4,7 +4,7 @@
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
         <div class="row" style="width: 370px">
             <div class="col-lg-6">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        @include('admin::form.help-block')
+        @include('laravel-admin::form.help-block')
 
     </div>
 </div>

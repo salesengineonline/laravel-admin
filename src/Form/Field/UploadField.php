@@ -6,6 +6,7 @@ use Encore\Admin\Form;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait UploadField
@@ -288,8 +289,9 @@ trait UploadField
             return $path;
         }
 
-        if ($this->storage) {
-            return $this->storage->url($path);
+        if(Str::startsWith($path, '/')) {
+            $path = substr($path,1, strlen($path));
+            return Storage::url($path);
         }
 
         return Storage::disk(config('admin.upload.disk'))->url($path);

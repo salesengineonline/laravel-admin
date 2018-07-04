@@ -11,7 +11,7 @@ class MultipleImage extends MultipleFile
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::form.multiplefile';
+    protected $view = 'laravel-admin::form.multiplefile';
 
     /**
      *  Validation rules.

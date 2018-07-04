@@ -57,6 +57,17 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
+     * @return \Encore\Admin\BasicGrid
+     */
+    public function basicGrid($model, Closure $callable)
+    {
+        return new BasicGrid($this->getModel($model), $callable);
+    }
+
+    /**
+     * @param $model
+     * @param Closure $callable
+     *
      * @return \Encore\Admin\Form
      */
     public function form($model, Closure $callable)
@@ -123,7 +134,7 @@ class Admin
 
         static::$css = array_merge(static::$css, $css);
 
-        return view('admin::partials.css', ['css' => array_unique(static::$css)]);
+        return view('laravel-admin::partials.css', ['css' => array_unique(static::$css)]);
     }
 
     /**
@@ -145,7 +156,7 @@ class Admin
 
         static::$js = array_merge(static::$js, $js);
 
-        return view('admin::partials.js', ['js' => array_unique(static::$js)]);
+        return view('laravel-admin::partials.js', ['js' => array_unique(static::$js)]);
     }
 
     /**
@@ -161,7 +172,7 @@ class Admin
             return;
         }
 
-        return view('admin::partials.script', ['script' => array_unique(self::$script)]);
+        return view('laravel-admin::partials.script', ['script' => array_unique(self::$script)]);
     }
 
     /**

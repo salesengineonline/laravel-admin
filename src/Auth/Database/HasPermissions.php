@@ -2,9 +2,9 @@
 
 namespace Encore\Admin\Auth\Database;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait HasPermissions
 {
@@ -21,7 +21,7 @@ trait HasPermissions
             return Storage::disk(config('admin.upload.disk'))->url($avatar);
         }
 
-        return admin_asset('/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg');
+        return Storage::disk(config('admin.upload.disk'))->url('default.png');
     }
 
     /**

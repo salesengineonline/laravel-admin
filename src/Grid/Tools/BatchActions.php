@@ -104,6 +104,15 @@ $('.grid-select-all').on('ifChanged', function(event) {
     }
 });
 
+var selectedRows = function () {
+    var selected = [];
+    $('.grid-row-checkbox:checked').each(function(){
+        selected.push($(this).data('id'));
+    });
+
+    return selected;
+}
+
 EOT;
     }
 
@@ -124,6 +133,6 @@ EOT;
 
         $this->setUpScripts();
 
-        return view('admin::grid.batch-actions', ['actions' => $this->actions])->render();
+        return view('laravel-admin::grid.batch-actions', ['actions' => $this->actions])->render();
     }
 }

@@ -203,7 +203,7 @@ class Content implements Renderable
             'content'     => $this->build(),
         ];
 
-        return view('admin::content', $items)->render();
+        return view('laravel-admin::content', $items)->render();
     }
 
     /**

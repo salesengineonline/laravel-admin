@@ -17,7 +17,7 @@
         <div class="box-body">
 
             @if(!$tabObj->isEmpty())
-                @include('admin::form.tab', compact('tabObj'))
+                @include('laravel-admin::form.tab', compact('tabObj'))
             @else
                 <div class="fields-group">
 

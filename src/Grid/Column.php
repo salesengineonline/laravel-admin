@@ -67,6 +67,14 @@ class Column
     protected $relation = false;
 
     /**
+     * Indicates whether or not the Column should be disabled
+     * for Columns that are editable.
+     *
+     * @var bool
+     */
+    public $disabled = false;
+
+    /**
      * Relation column.
      *
      * @var string
@@ -301,6 +309,25 @@ class Column
 
         return $this;
     }
+
+    /**
+     * Allows setting the Column as disabled in case it contains an editable field.
+     * The callback allows you to add a function that resolves to a boolean.
+     *
+     * @param Closure|null $callback
+     * @return $this
+     */
+    public function disabled(Closure $callback = null)
+    {
+        if(!$callback) {
+            $this->disabled = true;
+        } else {
+            $this->disabled = !!call_user_func($callback);
+        }
+
+        return $this;
+    }
+
 
     /**
      * If has display callbacks.

@@ -1,4 +1,4 @@
-@extends('admin::index')
+@extends('laravel-admin::index')
 
 @section('content')
     <section class="content-header">
@@ -38,10 +38,10 @@
 
     <section class="content">
 
-        @include('admin::partials.error')
-        @include('admin::partials.success')
-        @include('admin::partials.exception')
-        @include('admin::partials.toastr')
+        @include('laravel-admin::partials.error')
+        @include('laravel-admin::partials.success')
+        @include('laravel-admin::partials.exception')
+        @include('laravel-admin::partials.toastr')
 
         {!! $content !!}
 

@@ -7,7 +7,7 @@ class Gt extends AbstractFilter
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::filter.gt';
+    protected $view = 'laravel-admin::filter.gt';
 
     /**
      * Get condition of this filter.

@@ -102,6 +102,13 @@ class Form
     protected $saving;
 
     /**
+     * Allows you remove embed HRs upon request.
+     *
+     * @var bool
+     */
+    protected $removeEmbedHr;
+
+    /**
      * Saved callback.
      *
      * @var Closure
@@ -969,9 +976,7 @@ class Form
         $data = $this->model->toArray();
 
         $this->builder->fields()->each(function (Field $field) use ($data) {
-            if (!in_array($field->column(), $this->ignored)) {
-                $field->fill($data);
-            }
+            $field->fill($data);
         });
     }
 
@@ -1109,20 +1114,6 @@ class Form
     public function setView($view)
     {
         $this->builder()->setView($view);
-
-        return $this;
-    }
-
-    /**
-     * Set title for form.
-     *
-     * @param string $title
-     *
-     * @return $this
-     */
-    public function setTitle($title = '')
-    {
-        $this->builder()->setTitle($title);
 
         return $this;
     }
@@ -1328,6 +1319,16 @@ class Form
         }
 
         return false;
+    }
+
+    public function setEmbedHr($val)
+    {
+        return $this->removeEmbedHr = !!$val;
+    }
+
+    public function removeEmbedHr()
+    {
+        return $this->removeEmbedHr;
     }
 
     /**

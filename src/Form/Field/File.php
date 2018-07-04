@@ -4,6 +4,7 @@ namespace Encore\Admin\Form\Field;
 
 use Encore\Admin\Form\Field;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class File extends Field
@@ -135,7 +136,11 @@ class File extends Field
      */
     protected function preview()
     {
-        return $this->objectUrl($this->value);
+        if(!Str::contains($this->value, 'base64')) {
+            return $this->objectUrl($this->value);
+        }
+
+        return "";
     }
 
     /**
@@ -147,7 +152,11 @@ class File extends Field
      */
     protected function initialCaption($caption)
     {
-        return basename($caption);
+        if(!Str::contains($this->value, 'base64')) {
+            return basename($caption);
+        }
+
+        return "";
     }
 
     /**
@@ -167,15 +176,19 @@ class File extends Field
      */
     public function render()
     {
-        $this->options(['overwriteInitial' => true]);
         $this->setupDefaultOptions();
 
+        $default = $this->value();
+        $this->value = $default ?? $this->value;
+
         if (!empty($this->value)) {
-            $this->attribute('data-initial-preview', filter_var($this->preview(), FILTER_VALIDATE_URL));
+            $this->attribute('data-initial-preview', $this->preview());
             $this->attribute('data-initial-caption', $this->initialCaption($this->value));
 
             $this->setupPreviewOptions();
         }
+
+        $this->options(['overwriteInitial' => true]);
 
         $options = json_encode($this->options);
 

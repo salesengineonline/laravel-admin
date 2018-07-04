@@ -10,7 +10,7 @@ class Table extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.table';
+    protected $view = 'laravel-admin::widgets.table';
 
     /**
      * @var array

@@ -19,7 +19,7 @@
             </a>
             <ul class="treeview-menu">
                 @foreach($item['children'] as $item)
-                    @include('admin::partials.menu', $item)
+                    @include('laravel-admin::partials.menu', $item)
                 @endforeach
             </ul>
         </li>

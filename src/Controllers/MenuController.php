@@ -35,7 +35,9 @@ class MenuController extends Controller
                     $form = new \Encore\Admin\Widgets\Form();
                     $form->action(admin_base_path('auth/menu'));
 
-                    $form->select('parent_id', trans('admin.parent_id'))->options(Menu::selectOptions());
+                    $menuOptions = str_replace("&nbsp;", "", Menu::selectOptions());
+
+                    $form->select('parent_id', trans('admin.parent_id'))->options($menuOptions);
                     $form->text('title', trans('admin.title'))->rules('required');
                     $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
                     $form->text('uri', trans('admin.uri'));
@@ -113,7 +115,9 @@ class MenuController extends Controller
         return Menu::form(function (Form $form) {
             $form->display('id', 'ID');
 
-            $form->select('parent_id', trans('admin.parent_id'))->options(Menu::selectOptions());
+            $menuOptions = str_replace("&nbsp;", "", Menu::selectOptions());
+
+            $form->select('parent_id', trans('admin.parent_id'))->options($menuOptions);
             $form->text('title', trans('admin.title'))->rules('required');
             $form->icon('icon', trans('admin.icon'))->default('fa-bars')->rules('required')->help($this->iconHelp());
             $form->text('uri', trans('admin.uri'));

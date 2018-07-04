@@ -42,16 +42,16 @@
 <body class="hold-transition {{config('admin.skin')}} {{join(' ', config('admin.layout'))}}">
 <div class="wrapper">
 
-    @include('admin::partials.header')
+    @include('laravel-admin::partials.header')
 
-    @include('admin::partials.sidebar')
+    @include('laravel-admin::partials.sidebar')
 
     <div class="content-wrapper" id="pjax-container">
         @yield('content')
         {!! Admin::script() !!}
     </div>
 
-    @include('admin::partials.footer')
+    @include('laravel-admin::partials.footer')
 
 </div>
 

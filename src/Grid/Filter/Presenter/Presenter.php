@@ -30,7 +30,7 @@ abstract class Presenter
     {
         $reflect = new \ReflectionClass(get_called_class());
 
-        return 'admin::filter.'.strtolower($reflect->getShortName());
+        return 'laravel-admin::filter.'.strtolower($reflect->getShortName());
     }
 
     /**

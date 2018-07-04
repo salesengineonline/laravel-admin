@@ -9,7 +9,7 @@ class Box extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.box';
+    protected $view = 'laravel-admin::widgets.box';
 
     /**
      * @var string

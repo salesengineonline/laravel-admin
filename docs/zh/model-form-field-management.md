@@ -85,7 +85,7 @@ EOT;
 
     <div class="{{$viewClass['field']}}">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
         <div id="{{$id}}" style="width: 100%; height: 100%;">
             <p>{!! old($column, $value) !!}</p>
@@ -156,11 +156,11 @@ class CKEditor extends Field
 
     <div class="col-sm-6">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
         <textarea class="form-control {{ $class }}" name="{{$name}}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
 
-        @include('admin::form.help-block')
+        @include('laravel-admin::form.help-block')
 
     </div>
 </div>
@@ -249,9 +249,9 @@ EOT;
 
     <div class="col-sm-6">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
-        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ trans('admin::lang.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
+        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ trans('laravel-admin::lang.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
     </div>
 </div>
 

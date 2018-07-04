@@ -79,7 +79,7 @@ abstract class AbstractFilter
     /**
      * @var string
      */
-    protected $view = 'admin::filter.where';
+    protected $view = 'laravel-admin::filter.where';
 
     /**
      * AbstractFilter constructor.

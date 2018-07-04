@@ -39,6 +39,11 @@ class Builder
     protected $fields;
 
     /**
+     * @var string
+     */
+    protected $title;
+
+    /**
      * @var array
      */
     protected $options = [
@@ -85,14 +90,7 @@ class Builder
      *
      * @var string
      */
-    protected $view = 'admin::form';
-
-    /**
-     * Form title.
-     *
-     * @var string
-     */
-    protected $title;
+    protected $view = 'laravel-admin::form';
 
     /**
      * Builder constructor.
@@ -238,20 +236,6 @@ class Builder
     }
 
     /**
-     * Set title for form.
-     *
-     * @param string $title
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
      * Get fields of this builder.
      *
      * @return Collection
@@ -348,28 +332,31 @@ class Builder
         return $this;
     }
 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
     /**
      * @return string
      */
     public function title()
     {
-        if ($this->title) {
-            return $this->title;
+        if(empty($this->title)) {
+            if ($this->mode == static::MODE_CREATE) {
+                return trans('admin.create');
+            }
+
+            if ($this->mode == static::MODE_EDIT) {
+                return trans('admin.edit');
+            }
+
+            if ($this->mode == static::MODE_VIEW) {
+                return trans('admin.view');
+            }
         }
 
-        if ($this->mode == static::MODE_CREATE) {
-            return trans('admin.create');
-        }
-
-        if ($this->mode == static::MODE_EDIT) {
-            return trans('admin.edit');
-        }
-
-        if ($this->mode == static::MODE_VIEW) {
-            return trans('admin.view');
-        }
-
-        return '';
+        return $this->title ?? '';
     }
 
     /**

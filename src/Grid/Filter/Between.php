@@ -9,7 +9,7 @@ class Between extends AbstractFilter
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::filter.between';
+    protected $view = 'laravel-admin::filter.between';
 
     /**
      * Format id.
@@ -92,7 +92,7 @@ class Between extends AbstractFilter
      */
     public function datetime($options = [])
     {
-        $this->view = 'admin::filter.betweenDatetime';
+        $this->view = 'laravel-admin::filter.betweenDatetime';
 
         $this->setupDatetime($options);
 

@@ -9,7 +9,7 @@ class Callout extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.callout';
+    protected $view = 'laravel-admin::widgets.callout';
 
     /**
      * @var string

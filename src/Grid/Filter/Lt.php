@@ -7,7 +7,7 @@ class Lt extends AbstractFilter
     /**
      * {@inheritdoc}
      */
-    protected $view = 'admin::filter.lt';
+    protected $view = 'laravel-admin::filter.lt';
 
     /**
      * Get condition of this filter.

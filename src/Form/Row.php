@@ -71,7 +71,7 @@ class Row implements Renderable
      */
     public function render()
     {
-        return view('admin::form.row', ['fields' => $this->fields]);
+        return view('laravel-admin::form.row', ['fields' => $this->fields]);
     }
 
     /**

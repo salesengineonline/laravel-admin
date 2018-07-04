@@ -8,7 +8,7 @@ class Captcha extends Text
 {
     protected $rules = 'required|captcha';
 
-    protected $view = 'admin::form.captcha';
+    protected $view = 'laravel-admin::form.captcha';
 
     public function __construct($column, $arguments = [])
     {

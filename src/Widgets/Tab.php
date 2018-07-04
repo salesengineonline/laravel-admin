@@ -9,7 +9,7 @@ class Tab extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.tab';
+    protected $view = 'laravel-admin::widgets.tab';
 
     /**
      * @var array

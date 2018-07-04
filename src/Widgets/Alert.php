@@ -9,7 +9,7 @@ class Alert extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.alert';
+    protected $view = 'laravel-admin::widgets.alert';
 
     /**
      * @var string|\Symfony\Component\Translation\TranslatorInterface

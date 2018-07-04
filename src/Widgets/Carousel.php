@@ -9,7 +9,7 @@ class Carousel extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.carousel';
+    protected $view = 'laravel-admin::widgets.carousel';
 
     /**
      * @var array

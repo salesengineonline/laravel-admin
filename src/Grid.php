@@ -122,7 +122,7 @@ class Grid
      *
      * @var string
      */
-    protected $view = 'admin::grid.table';
+    protected $view = 'laravel-admin::grid.table';
 
     /**
      * Per-page options.

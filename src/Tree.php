@@ -35,8 +35,8 @@ class Tree implements Renderable
      * @var string
      */
     protected $view = [
-        'tree'   => 'admin::tree',
-        'branch' => 'admin::tree.branch',
+        'tree'   => 'laravel-admin::tree',
+        'branch' => 'laravel-admin::tree.branch',
     ];
 
     /**

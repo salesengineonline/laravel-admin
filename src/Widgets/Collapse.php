@@ -9,7 +9,7 @@ class Collapse extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.collapse';
+    protected $view = 'laravel-admin::widgets.collapse';
 
     /**
      * @var array

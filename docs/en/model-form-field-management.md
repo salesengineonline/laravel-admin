@@ -94,9 +94,9 @@ Create a view file `resources/views/admin/php-editor.blade.php`:
 
     <div class="col-sm-6">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
-        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ trans('admin::lang.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
+        <textarea class="form-control" id="{{$id}}" name="{{$name}}" placeholder="{{ trans('laravel-admin::lang.input') }} {{$label}}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
     </div>
 </div>
 
@@ -163,11 +163,11 @@ Add blade file `resources/views/admin/ckeditor.blade.php` for view `admin.ckedit
 
     <div class="col-sm-6">
 
-        @include('admin::form.error')
+        @include('laravel-admin::form.error')
 
         <textarea class="form-control {{$class}}" id="{{$id}}" name="{{$name}}" placeholder="{{ $placeholder }}" {!! $attributes !!} >{{ old($column, $value) }}</textarea>
 
-        @include('admin::form.help-block')
+        @include('laravel-admin::form.help-block')
 
     </div>
 </div>

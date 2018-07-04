@@ -3,7 +3,6 @@
 namespace Encore\Admin;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -53,7 +52,7 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-admin');
 
         if (file_exists($routes = admin_path('routes.php'))) {
             $this->loadRoutesFrom($routes);
@@ -62,15 +61,9 @@ class AdminServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__.'/../config' => config_path()], 'laravel-admin-config');
             $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'laravel-admin-lang');
-//            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/admin')],           'laravel-admin-views');
+            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/vendor/admin')],           'laravel-admin-views');
             $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'laravel-admin-migrations');
             $this->publishes([__DIR__.'/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
-        }
-        
-        //remove default feature of double encoding enable in laravel 5.6 or later.
-        $bladeReflectionClass = new \ReflectionClass('\Illuminate\View\Compilers\BladeCompiler');
-        if($bladeReflectionClass->hasMethod('withoutDoubleEncoding')){
-            Blade::withoutDoubleEncoding();
         }
     }
 

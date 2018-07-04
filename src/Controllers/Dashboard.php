@@ -11,7 +11,7 @@ class Dashboard
      */
     public static function title()
     {
-        return view('admin::dashboard.title');
+        return view('laravel-admin::dashboard.title');
     }
 
     /**
@@ -36,7 +36,7 @@ class Dashboard
             ['name' => 'URL',               'value' => config('app.url')],
         ];
 
-        return view('admin::dashboard.environment', compact('envs'));
+        return view('laravel-admin::dashboard.environment', compact('envs'));
     }
 
     /**
@@ -85,10 +85,10 @@ class Dashboard
                 'link' => 'https://github.com/laravel-admin-extensions/reporter',
                 'icon' => 'bug',
             ],
-            'redis-manager' => [
-                'name' => 'laravel-admin-ext/redis-manager',
-                'link' => 'https://github.com/laravel-admin-extensions/redis-manager',
-                'icon' => 'flask',
+            'translation' => [
+                'name' => 'laravel-admin-ext/translation',
+                'link' => 'https://github.com/laravel-admin-extensions/translation',
+                'icon' => 'language',
             ],
         ];
 
@@ -97,7 +97,7 @@ class Dashboard
             $extension['installed'] = array_key_exists(end($name), Admin::$extensions);
         }
 
-        return view('admin::dashboard.extensions', compact('extensions'));
+        return view('laravel-admin::dashboard.extensions', compact('extensions'));
     }
 
     /**
@@ -109,6 +109,6 @@ class Dashboard
 
         $dependencies = json_decode($json, true)['require'];
 
-        return view('admin::dashboard.dependencies', compact('dependencies'));
+        return view('laravel-admin::dashboard.dependencies', compact('dependencies'));
     }
 }

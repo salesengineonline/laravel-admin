@@ -46,7 +46,7 @@ class Paginator extends AbstractTool
      */
     protected function paginationLinks()
     {
-        return $this->paginator->render('admin::pagination');
+        return $this->paginator->render('laravel-admin::pagination');
     }
 
     /**

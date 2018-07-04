@@ -8,15 +8,12 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Traits\Macroable;
 
 /**
  * Class Field.
  */
 class Field implements Renderable
 {
-    use Macroable;
-
     const FILE_DELETE_FLAG = '_file_del_';
 
     /**
@@ -187,11 +184,6 @@ class Field implements Renderable
      * @var bool
      */
     protected $horizontal = true;
-
-    /**
-     * @var bool
-     */
-    protected $display = true;
 
     /**
      * Field constructor.
@@ -406,11 +398,7 @@ class Field implements Renderable
             $this->rules = $rules;
         }
 
-        if (is_array($rules)) {
-            $thisRuleArr = array_filter(explode('|', $this->rules));
-
-            $this->rules = array_merge($thisRuleArr, $rules);
-        } elseif (is_string($rules)) {
+        if (is_string($rules)) {
             $rules = array_filter(explode('|', "{$this->rules}|$rules"));
 
             $this->rules = implode('|', $rules);
@@ -862,20 +850,6 @@ class Field implements Renderable
     }
 
     /**
-     * Add variables to field view.
-     *
-     * @param array $variables
-     *
-     * @return $this
-     */
-    protected function addVariables(array $variables = [])
-    {
-        $this->variables = array_merge($this->variables, $variables);
-
-        return $this;
-    }
-
-    /**
      * Get the view variables of this field.
      *
      * @return array
@@ -910,7 +884,7 @@ class Field implements Renderable
 
         $class = explode('\\', get_called_class());
 
-        return 'admin::form.'.strtolower(end($class));
+        return 'laravel-admin::form.'.strtolower(end($class));
     }
 
     /**
@@ -930,10 +904,6 @@ class Field implements Renderable
      */
     public function render()
     {
-        if (!$this->display) {
-            return '';
-        }
-
         Admin::script($this->script);
 
         return view($this->getView(), $this->variables());

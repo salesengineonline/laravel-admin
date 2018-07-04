@@ -8,7 +8,7 @@
             </div><!-- /.box-body -->
         </div>
 
-        @include('admin::form.help-block')
+        @include('laravel-admin::form.help-block')
 
     </div>
 </div>

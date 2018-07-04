@@ -9,7 +9,7 @@ class InfoBox extends Widget implements Renderable
     /**
      * @var string
      */
-    protected $view = 'admin::widgets.info-box';
+    protected $view = 'laravel-admin::widgets.info-box';
 
     /**
      * @var array
